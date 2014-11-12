@@ -2,14 +2,18 @@
     xpozytywne/2,
     xnegatywne/2.
 
-samochod_jest(suv) :- 	cecha_samochodu(okazyjnie_trudny_teren).
+samochod_jest(suv) :- 	cecha_samochodu(okazyjnie_trudny_teren),
+		   	cecha_samochodu(rodzinny),
+		   	cecha_samochodu(duzo_miejsca).
                         
-samochod_jest(terenowy) :- cecha_samochodu(codziennie_trudny_teren).
+samochod_jest(terenowy) :- 	cecha_samochodu(codziennie_trudny_teren),
+				cecha_samochodu(duzo_miejsca).
                         
 samochod_jest(kabriolet) :- cecha_samochodu(skladany_dach).
                         
-samochod_jest(minbus) :- cecha_samochodu(wiecej_niz_7_miejsc).
-                     
+samochod_jest(minbus) :- 	cecha_samochodu(wiecej_niz_7_miejsc),
+                     		cecha_samochodu(przewozenie_duzej_ilosci_bagazu).
+              
 samochod_jest(sportowy) :- cecha_samochodu(wyscigi).
 
 samochod_jest(pickup) :- cecha_samochodu(odsloniety_duzy_bagaznik).
@@ -22,9 +26,15 @@ samochod_jest(hatchback) :- cecha_samochodu(nie_wysuniety_tyl_nadwozia).
 
 cecha_samochodu(okazyjnie_trudny_teren) :- pozytywne(czy,ma_okazyjnie_dać_radę_przejechać_przez_trudny_teren).
 
+cecha_samochodu(rodzinny) :- 	pozytywne(czy,ma_to_byc_samochód_rodzinny).
+
+cecha_samochodu(duzo_miejsca) :- 	pozytywne(czy,ma_mieć_dużo_miejsca).
+
 cecha_samochodu(codziennie_trudny_teren) :- pozytywne(czy,musi_codziennie_przejechać_przez_trudny_teren).
 
 cecha_samochodu(skladany_dach) :- pozytywne(czy,ma_być_ze_składanym_dachem).
+
+cecha_samochodu(przewozenie_duzej_ilosci_bagazu) :- pozytywne(czy,ma_być_w_stanie_przewieźć_dużą_ilość_bagażu).
 
 cecha_samochodu(wiecej_niz_7_miejsc) :- pozytywne(czy,ma_mieć_więcej_niż_7_miejsc_siedzących).
 
