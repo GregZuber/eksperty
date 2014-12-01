@@ -1,3 +1,11 @@
+:- use_module(library(http/thread_httpd)).
+:- use_module(library(http/http_dispatch)).
+:- use_module(library(http/html_write)).
+:- http_handler(/, wykonaj, []).
+
+server :-
+    http_server(http_dispatch, [port(8000)]).
+
 :- dynamic
     xpozytywne/2,
     xnegatywne/2.
@@ -24,37 +32,37 @@ samochod_jest(sedan) :- cecha_samochodu(wysuniety_tyl_nadwozia).
 
 samochod_jest(hatchback) :- cecha_samochodu(nie_wysuniety_tyl_nadwozia).
 
-cecha_samochodu(okazyjnie_trudny_teren) :- 	pozytywne(czy,ma_okazyjnie_dać_radę_przejechać_przez_trudny_teren),
-						pozytywne(czy,ma_mieć_wyższe_niż_standardowe_zawieszenie).
+cecha_samochodu(okazyjnie_trudny_teren) :- 	pozytywne(czy,ma_okazyjnie_dac_rade_przejechac_przez_trudny_teren),
+						pozytywne(czy,ma_miec_wyzsze_niz_standardowe_zawieszenie).
 
-cecha_samochodu(rodzinny) :- 	pozytywne(czy,ma_to_byc_samochód_rodzinny),
-				pozytywne(czy,ma_być_taki_że_5_osób_może_w_nim_wygodnie_usiąść).
+cecha_samochodu(rodzinny) :- 	pozytywne(czy,ma_to_byc_samochod_rodzinny),
+				pozytywne(czy,ma_byc_taki_ze_5_osob_moze_w_nim_wygodnie_usiasc).
 
-cecha_samochodu(duzo_miejsca) :- 	pozytywne(czy,ma_mieć_dużo_miejsca).
+cecha_samochodu(duzo_miejsca) :- 	pozytywne(czy,ma_miec_duzo_miejsca).
 
-cecha_samochodu(codziennie_trudny_teren) :- 	pozytywne(czy,musi_codziennie_przejechać_przez_trudny_teren),
-						pozytywne(czy,ma_mieć_wyciągarkę),
-						pozytywne(czy,ma_mieć_wysokie_nadwozie).
+cecha_samochodu(codziennie_trudny_teren) :- 	pozytywne(czy,musi_codziennie_przejechac_przez_trudny_teren),
+						pozytywne(czy,ma_miec_wyciagarke),
+						pozytywne(czy,ma_miec_wysokie_nadwozie).
 
-cecha_samochodu(skladany_dach) :- 	pozytywne(czy,ma_być_ze_składanym_dachem),
-					pozytywne(czy,umożliwia_opalanie_się_w_lecie).
+cecha_samochodu(skladany_dach) :- 	pozytywne(czy,ma_byc_ze_skladanym_dachem),
+					pozytywne(czy,umozliwia_opalanie_sie_w_lecie).
 
-cecha_samochodu(przewozenie_duzej_ilosci_bagazu) :- pozytywne(czy,ma_być_w_stanie_przewieźć_dużą_ilość_bagażu).
+cecha_samochodu(przewozenie_duzej_ilosci_bagazu) :- pozytywne(czy,ma_byc_w_stanie_przewieźc_duza_ilosc_bagazu).
 
-cecha_samochodu(wiecej_niz_7_miejsc) :- pozytywne(czy,ma_mieć_więcej_niż_7_miejsc_siedzących).
+cecha_samochodu(wiecej_niz_7_miejsc) :- pozytywne(czy,ma_miec_wiecej_niz_7_miejsc_siedzacych).
 
-cecha_samochodu(wyscigi) :- 	pozytywne(czy,ma_nadawać_się_do_wyścigów),
-				pozytywne(czy,ma_mieć_sportowy_silnik),
-				pozytywne(czy,ma_mieć_silnik_o_dużej_pojemności).
+cecha_samochodu(wyscigi) :- 	pozytywne(czy,ma_nadawac_sie_do_wyscigow),
+				pozytywne(czy,ma_miec_sportowy_silnik),
+				pozytywne(czy,ma_miec_silnik_o_duzej_pojemnosci).
 
-cecha_samochodu(odsloniety_duzy_bagaznik) :- 	pozytywne(czy,ma_mieć_za_szybą_tylną_odsłonięty_duży_bagażnik),
-						pozytywne(czy,bagażnik_za_tylną_szybą_ma_się_nadawać_do_przewożenia_dużych_materiałów).
+cecha_samochodu(odsloniety_duzy_bagaznik) :- 	pozytywne(czy,ma_miec_za_szyba_tylna_odsloniety_duzy_bagaznik),
+						pozytywne(czy,bagaznik_za_tylna_szyba_ma_sie_nadawac_do_przewozenia_duzych_materialow).
 
-cecha_samochodu(powiekszony_bagaznik) :- 	pozytywne(czy,ma_mieć_powiększony_bagażnik),
-						pozytywne(czy,ma_mieć_bagażnik_w_którym_zmieści_się_rodzina_podczas_wyjazdu_na_wakacje).	
+cecha_samochodu(powiekszony_bagaznik) :- 	pozytywne(czy,ma_miec_powiekszony_bagaznik),
+						pozytywne(czy,ma_miec_bagaznik_w_ktorym_zmiesci_sie_rodzina_podczas_wyjazdu_na_wakacje).	
 
-cecha_samochodu(wysuniety_tyl_nadwozia) :- 	pozytywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
-					 	negatywne(czy,ma_mieć_tył_nadwozia_na_równi_z_szybą_tylną).
+cecha_samochodu(wysuniety_tyl_nadwozia) :- 	pozytywne(czy,ma_miec_wysuniety_tyl_nadwozia_za_szybe_tylna),
+					 	negatywne(czy,ma_miec_tyl_nadwozia_na_rowni_z_szyba_tylna).
 
 pozytywne(X,Y) :- xpozytywne(X,Y), !.
 
@@ -64,15 +72,17 @@ negatywne(X,Y) :- xnegatywne(X,Y), !.
 
 negatywne(X,Y) :- \+xpozytywne(X,Y), pytaj(X,Y,nie).
 
-pytaj(X,Y,tak) :- !, format('~w samochód ~w ? (t/n)~n',[X,Y]),
-                    read(Reply),
-                    (Reply = 't'),
-                    pamietaj(X,Y,tak).
+pytaj(X,Y,tak) :-
+    !, format('~w samochod ~w ? (t/n)~n',[X,Y]).
+                    %% read(Reply),
+                    %% (Reply = 't'),
+                    %% pamietaj(X,Y,tak).
                     
-pytaj(X,Y,nie) :- !, format('~w samochód ~w ? (t/n)~n',[X,Y]),
-                    read(Reply),
-                    (Reply = 'n'),
-                    pamietaj(X,Y,nie).
+pytaj(X,Y,nie) :-
+    !, format('~w samochod ~w ? (t/n)~n',[X,Y]).
+                    %% read(Reply),
+                    %% (Reply = 'n'),
+                    %% pamietaj(X,Y,nie).
                     
 pamietaj(X,Y,tak) :- assertz(xpozytywne(X,Y)).
 
@@ -81,11 +91,14 @@ pamietaj(X,Y,nie) :- assertz(xnegatywne(X,Y)).
 wyczysc_fakty :- write('Przycisnij cos aby wyjsc'), nl,
                     retractall(xpozytywne(_,_)),
                     retractall(xnegatywne(_,_)),
-                    get_char(_).
+                    %% get_char(_).
+                    halt.
                     
-wykonaj :- samochod_jest(X), !,
-            format('~nWybierz samochód typu ~w', X),
-            nl, wyczysc_fakty.
+wykonaj(_Request) :- format('Content-type: text/plain~n~n'),
+                     samochod_jest(X), !,
+                     format('~nWybierz samochod typu ~w', X),
+                     nl, wyczysc_fakty.
             
-wykonaj :- write('Nie jestem w stanie dopasować odpowiedniego samochodu dla Ciebie.'), nl,
-            wyczysc_fakty.
+wykonaj(Request) :- format('Content-type: text/plain~n~n'),
+                    write('Nie jestem w stanie dopasowac odpowiedniego samochodu dla Ciebie.'), nl,
+                    wyczysc_fakty.
