@@ -2,59 +2,72 @@
     xpozytywne/2,
     xnegatywne/2.
 
-samochod_jest(suv) :- 	cecha_samochodu(okazyjnie_trudny_teren),
-		   	cecha_samochodu(rodzinny),
-		   	cecha_samochodu(duzo_miejsca).
+
+samochod_jest(audi_5) :- 		cecha_samochodu(suv),
+		   			cecha_samochodu(niemiecki).
                         
-samochod_jest(terenowy) :- 	cecha_samochodu(codziennie_trudny_teren),
-				cecha_samochodu(duzo_miejsca).
+samochod_jest(jeep_renegade) :- 	cecha_samochodu(suv),
+					cecha_samochodu(jeep).
                         
-samochod_jest(kabriolet) :- cecha_samochodu(skladany_dach).
+samochod_jest(nissan_Navara) :- 	cecha_samochodu(terenowy),
+					cecha_samochodu(nissan).
                         
-samochod_jest(minbus) :- 	cecha_samochodu(wiecej_niz_7_miejsc),
-                     		cecha_samochodu(przewozenie_duzej_ilosci_bagazu).
+samochod_jest(land_Rover_Defender) :- 	cecha_samochodu(terenowy),
+                     			cecha_samochodu(angielski).       
               
-samochod_jest(sportowy) :- cecha_samochodu(wyscigi).
+samochod_jest(peugeot_508) :- 		cecha_samochodu(kombi),
+		   			cecha_samochodu(peugeot).
+                        
+samochod_jest(volkswagen_Passat_B6) :- 	cecha_samochodu(kombi),
+					cecha_samochodu(niemiecki).
+                        
+samochod_jest(opel_Astra_4) :- 		cecha_samochodu(hatchback),
+					cecha_samochodu(niemiecki).
+                        
+samochod_jest(citroen_C4) :- 		cecha_samochodu(hatchback),
+                     			cecha_samochodu(citroen).
 
-samochod_jest(pickup) :- cecha_samochodu(odsloniety_duzy_bagaznik).
+samochod_jest(skoda_Superb_2) :- 	cecha_samochodu(sedan),
+                     			cecha_samochodu(skoda).                          			
 
-samochod_jest(combi) :- cecha_samochodu(powiekszony_bagaznik).
+samochod_jest(mercedes_Benz_C_class) :- cecha_samochodu(sedan),
+                     			cecha_samochodu(niemiecki).                       			                			
 
-samochod_jest(sedan) :- cecha_samochodu(wysuniety_tyl_nadwozia).
+cecha_samochodu(suv) :- 	pozytywne(czy,ma_dać_radę_przejechać_przez_trudny_teren),
+				pozytywne(czy,ma_to_być_samochód_rodzinny).
 
-samochod_jest(hatchback) :- cecha_samochodu(nie_wysuniety_tyl_nadwozia).
+cecha_samochodu(terenowy) :- 	pozytywne(czy,ma_dać_radę_przejechać_przez_trudny_teren),
+				pozytywne(czy,ma_mieć_wyciągarkę).
 
-cecha_samochodu(okazyjnie_trudny_teren) :- 	pozytywne(czy,ma_okazyjnie_dać_radę_przejechać_przez_trudny_teren),
-						pozytywne(czy,ma_mieć_wyższe_niż_standardowe_zawieszenie).
+cecha_samochodu(kombi) :- 	negatywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
+				pozytywne(czy,ma_mieć_powiększony_bagażnik).
 
-cecha_samochodu(rodzinny) :- 	pozytywne(czy,ma_to_byc_samochód_rodzinny),
-				pozytywne(czy,ma_być_taki_że_5_osób_może_w_nim_wygodnie_usiąść).
+cecha_samochodu(hatchback) :- 	negatywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
+				negatywne(czy,ma_mieć_powiększony_bagażnik).
 
-cecha_samochodu(duzo_miejsca) :- 	pozytywne(czy,ma_mieć_dużo_miejsca).
+cecha_samochodu(hatchback) :- 	pozytywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
+				negatywne(czy,ma_mieć_powiększony_bagażnik).
 
-cecha_samochodu(codziennie_trudny_teren) :- 	pozytywne(czy,musi_codziennie_przejechać_przez_trudny_teren),
-						pozytywne(czy,ma_mieć_wyciągarkę),
-						pozytywne(czy,ma_mieć_wysokie_nadwozie).
+cecha_samochodu(niemiecki) :- 	pozytywne(czy,może_być_produkcji_niemieckiej).
 
-cecha_samochodu(skladany_dach) :- 	pozytywne(czy,ma_być_ze_składanym_dachem),
-					pozytywne(czy,umożliwia_opalanie_się_w_lecie).
+cecha_samochodu(jeep) :- 	pozytywne(czy,może_być_produkcji_amerykańskiej),
+				pozytywne(czy,może_to_być_jeep).
+				
+cecha_samochodu(nissan) :- 	pozytywne(czy,może_być_produkcji_japońskiej),
+				pozytywne(czy,może_to_być_nissan).
+				
+cecha_samochodu(peugeot) :- 	pozytywne(czy,może_być_produkcji_francuskiej),
+				pozytywne(czy,może_to_być_peugeot).
+				
+cecha_samochodu(citroen) :- 	pozytywne(czy,może_być_produkcji_francuskiej),
+				pozytywne(czy,może_to_być_citroen).
+				
+cecha_samochodu(skoda) :- 	pozytywne(czy,może_być_produkcji_czeskiej),
+				pozytywne(czy,może_to_być_skoda).	
 
-cecha_samochodu(przewozenie_duzej_ilosci_bagazu) :- pozytywne(czy,ma_być_w_stanie_przewieźć_dużą_ilość_bagażu).
+cecha_samochodu(angielski) :- 	pozytywne(czy,może_być_produkcji_angielskiej).							
+				
 
-cecha_samochodu(wiecej_niz_7_miejsc) :- pozytywne(czy,ma_mieć_więcej_niż_7_miejsc_siedzących).
-
-cecha_samochodu(wyscigi) :- 	pozytywne(czy,ma_nadawać_się_do_wyścigów),
-				pozytywne(czy,ma_mieć_sportowy_silnik),
-				pozytywne(czy,ma_mieć_silnik_o_dużej_pojemności).
-
-cecha_samochodu(odsloniety_duzy_bagaznik) :- 	pozytywne(czy,ma_mieć_za_szybą_tylną_odsłonięty_duży_bagażnik),
-						pozytywne(czy,bagażnik_za_tylną_szybą_ma_się_nadawać_do_przewożenia_dużych_materiałów).
-
-cecha_samochodu(powiekszony_bagaznik) :- 	pozytywne(czy,ma_mieć_powiększony_bagażnik),
-						pozytywne(czy,ma_mieć_bagażnik_w_którym_zmieści_się_rodzina_podczas_wyjazdu_na_wakacje).	
-
-cecha_samochodu(wysuniety_tyl_nadwozia) :- 	pozytywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
-					 	negatywne(czy,ma_mieć_tył_nadwozia_na_równi_z_szybą_tylną).
 
 pozytywne(X,Y) :- xpozytywne(X,Y), !.
 
@@ -84,7 +97,7 @@ wyczysc_fakty :- write('Przycisnij cos aby wyjsc'), nl,
                     get_char(_).
                     
 wykonaj :- samochod_jest(X), !,
-            format('~nWybierz samochód typu ~w', X),
+            format('~nWybierz samochód ~w', X),
             nl, wyczysc_fakty.
             
 wykonaj :- write('Nie jestem w stanie dopasować odpowiedniego samochodu dla Ciebie.'), nl,
