@@ -45,7 +45,7 @@ cecha_samochodu(kombi) :- 	negatywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_sz
 cecha_samochodu(hatchback) :- 	negatywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
 				negatywne(czy,ma_mieć_powiększony_bagażnik).
 
-cecha_samochodu(hatchback) :- 	pozytywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
+cecha_samochodu(sedan) :- 	pozytywne(czy,ma_mieć_wysunięty_tył_nadwozia_za_szybę_tylną),
 				negatywne(czy,ma_mieć_powiększony_bagażnik).
 
 cecha_samochodu(niemiecki) :- 	pozytywne(czy,może_być_produkcji_niemieckiej).
