@@ -1,0 +1,47 @@
+
+około 10 hipotez - 9
+około 20-25 symptomów: 
+co najmniej 10 faktów pośrednich
+około 30-40 reguł
+
+Audi_5: suv, niemiecki
+
+Jeep_renegade: suv, nie niemiecki (amerykanski)
+
+Nissan_Navara: terenowy, nissan
+
+Land_Rover_Defender: terenowy, Land_rover
+
+Peugeot_508: kombi, francuski
+
+Volkswagen_Passat_B6: kombi, niemiecki
+
+Opel_Astra_4: hatchback, niemiecki
+
+Citroen_C4: hatchback, francuski
+
+Skoda_Superb_2: sedan
+
+Mercedes-Benz_C_class: sedan, niemiecki
+
+
+
+
+
+suv: cecha trudny teren, samochód rodzinny
+
+terenowy: cecha - trudny teren, wyciągarka, nie samochód rodzinny
+
+combi : cecha - powiększona ilość bagażu, nie wysuniety tyl nadwozzia
+
+kabriolet: cecha - rozkładany dach
+
+minibus: cecha - przewóz dużej ilości osób, nie wysunięty tył nadwozia
+
+sportowy: cecha - powiekszona moc silnika, nadajacy sie do wyscigow
+
+sedan: cecha - wysuniety tyl nadwozia, 
+
+hatchback: nie powiekszona ilosc bagazu, nie wysuniety tyl nadwozia
+
+pickup: powiekszona ilosc gagazu, 
