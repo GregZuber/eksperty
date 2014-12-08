@@ -20,8 +20,8 @@ samochod_jest(nissan_Navara) :- 	cecha_samochodu(terenowy),
 					cecha_samochodu(nissan),
 					cecha_samochodu(bez_szyberdachu),
 					cecha_samochodu(4_drzwiowy),
-					pozytywne(czy,musi_to_być_samochód_garażowany),
-					pozytywne(czy,musi_mieć_klimatyzację).
+					negatywne(czy,musi_to_być_samochód_garażowany),
+					negatywne(czy,musi_mieć_klimatyzację).
                         
 samochod_jest(land_Rover_Defender) :- 	cecha_samochodu(terenowy),
                      			cecha_samochodu(angielski),
@@ -43,24 +43,25 @@ samochod_jest(opel_Astra_4) :- 		cecha_samochodu(hatchback),
 					cecha_samochodu(niemiecki),
 					cecha_samochodu(manulana_skrzynia),
 					cecha_samochodu(nie_4_drzwiowy),
-					negatywne(czy,musi_to_być_samochód_bezwypadkowy).
+					negatywne(czy,musi_to_być_samochód_bezwypadkowy),
+					negatywne(czy,musi_mieć_ABS).
                         
 samochod_jest(citroen_C4) :- 		cecha_samochodu(hatchback),
                      			cecha_samochodu(citroen),
                      			cecha_samochodu(szyberdach),
-                     			negatywne(czy,musi_to_być_samochód_garażowany).
+                     			negatywne(czy,musi_to_być_samochód_garażowany),
+                     			negatywne(czy,musi_mieć_czujnik_parkowania).
 
 samochod_jest(skoda_Superb_2) :- 	cecha_samochodu(sedan),
                      			cecha_samochodu(skoda),
                      			cecha_samochodu(bez_szyberdachu),
-                     			pozytywne(czy,musi_to_być_samochód_wyprodukowany_po_2010_roku).                          			
+                     			negatywne(czy,musi_to_być_samochód_wyprodukowany_po_2010_roku).                          			
 
 samochod_jest(mercedes_Benz_C_class) :- cecha_samochodu(sedan),
                      			cecha_samochodu(niemiecki),
                      			cecha_samochodu(4_drzwiowy),
                      			pozytywne(czy,może_być_droższy_niż_30_000_złotych),
-                     			negatywne(czy,może_mieć_przebieg_większy_niż_100_000_kilometrów),
-                     			pozytywne(czy,musi_mieć_ABS).                       			                			
+                     			negatywne(czy,może_mieć_przebieg_większy_niż_100_000_kilometrów).                       			                			
 
 cecha_samochodu(suv) :- 	pozytywne(czy,ma_dać_radę_przejechać_przez_trudny_teren),
 				pozytywne(czy,ma_to_być_samochód_rodzinny).
