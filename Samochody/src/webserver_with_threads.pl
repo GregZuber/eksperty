@@ -66,8 +66,8 @@ init(Request) :-
 ask :-
     thread_self(TId),
     send_to_backend({get_question, TId}),
-    thread_get_message({QuestionOrStop, Q}),
-    QuestionOrStop == question ->
+    thread_get_message(QuestionOrStop),
+    {question, Q} = QuestionOrStop  ->
         reply_html_page(
                 title('POST demo'),
                 [
