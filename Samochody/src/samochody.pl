@@ -19,7 +19,7 @@ samochod_jest(jeep_renegade) :- 	cecha_samochodu(suv),
 samochod_jest(nissan_Navara) :- 	cecha_samochodu(terenowy),
 					cecha_samochodu(nissan),
 					cecha_samochodu(bez_szyberdachu),
-					cecha_samochodu(4_drzwiowy),
+					cecha_samochodu(cztero_drzwiowy),
 					negatywne(czy,musi_to_być_samochód_garażowany),
 					negatywne(czy,musi_mieć_klimatyzację).
                         
@@ -59,7 +59,7 @@ samochod_jest(skoda_Superb_2) :- 	cecha_samochodu(sedan),
 
 samochod_jest(mercedes_Benz_C_class) :- cecha_samochodu(sedan),
                      			cecha_samochodu(niemiecki),
-                     			cecha_samochodu(4_drzwiowy),
+                     			cecha_samochodu(cztero_drzwiowy),
                      			pozytywne(czy,może_być_droższy_niż_30_000_złotych),
                      			negatywne(czy,może_mieć_przebieg_większy_niż_100_000_kilometrów).                       			                			
 
@@ -109,7 +109,7 @@ cecha_samochodu(szyberdach)  			:- 		pozytywne(czy,ma_mieć_szyberdach).
 
 cecha_samochodu(bez_szyberdachu)		:- 		negatywne(czy,ma_mieć_szyberdach).
 
-cecha_samochodu(4_drzwiowy)  			:- 		pozytywne(czy,ma_mieć_4_drzwi).
+cecha_samochodu(cztero_drzwiowy)  			:- 		pozytywne(czy,ma_mieć_4_drzwi).
 
 cecha_samochodu(nie_4_drzwiowy)			:- 		negatywne(czy,ma_mieć_4_drzwi).
 
