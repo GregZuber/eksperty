@@ -7,7 +7,7 @@ samochod_jest(audi_5) :- 		cecha_samochodu(suv),
 		   			cecha_samochodu(niemiecki),
 		   			cecha_samochodu(automatyczna_skrzynia),
 		   			cecha_samochodu(pojemnosc_wieksza_niz_2_litry),
-		   			negatywne(czy,musi_to_być_samochód_wyprodukowany_po_2010_roku).
+		   			negatywne(czy,musi_być_wyprodukowany_po_2010_roku).
                         
 samochod_jest(jeep_renegade) :- 	cecha_samochodu(suv),
 					cecha_samochodu(jeep),
@@ -20,7 +20,7 @@ samochod_jest(nissan_Navara) :- 	cecha_samochodu(terenowy),
 					cecha_samochodu(nissan),
 					cecha_samochodu(bez_szyberdachu),
 					cecha_samochodu(cztero_drzwiowy),
-					negatywne(czy,musi_to_być_samochód_garażowany),
+					negatywne(czy,musi_być_garażowany),
 					negatywne(czy,musi_mieć_klimatyzację).
                         
 samochod_jest(land_Rover_Defender) :- 	cecha_samochodu(terenowy),
@@ -32,30 +32,30 @@ samochod_jest(peugeot_508) :- 		cecha_samochodu(kombi),
 		   			cecha_samochodu(peugeot),
 		   			cecha_samochodu(automatyczna_skrzynia),
 		   			negatywne(czy,może_być_droższy_niż_30_000_złotych),
-		   			pozytywne(czy,musi_to_być_samochód_bezwypadkowy).
+		   			pozytywne(czy,musi_być_bezwypadkowy).
                         
 samochod_jest(volkswagen_Passat_B6) :- 	cecha_samochodu(kombi),
 					cecha_samochodu(niemiecki),
 					negatywne(czy,może_być_droższy_niż_30_000_złotych),
-					pozytywne(czy,musi_to_być_samochód_bezwypadkowy).
+					pozytywne(czy,musi_być_bezwypadkowy).
                         
 samochod_jest(opel_Astra_4) :- 		cecha_samochodu(hatchback),
 					cecha_samochodu(niemiecki),
 					cecha_samochodu(manulana_skrzynia),
 					cecha_samochodu(nie_4_drzwiowy),
-					negatywne(czy,musi_to_być_samochód_bezwypadkowy),
+					negatywne(czy,musi_być_bezwypadkowy),
 					negatywne(czy,musi_mieć_ABS).
                         
 samochod_jest(citroen_C4) :- 		cecha_samochodu(hatchback),
                      			cecha_samochodu(citroen),
                      			cecha_samochodu(szyberdach),
-                     			negatywne(czy,musi_to_być_samochód_garażowany),
+                     			negatywne(czy,musi_być_garażowany),
                      			negatywne(czy,musi_mieć_czujnik_parkowania).
 
 samochod_jest(skoda_Superb_2) :- 	cecha_samochodu(sedan),
                      			cecha_samochodu(skoda),
                      			cecha_samochodu(bez_szyberdachu),
-                     			negatywne(czy,musi_to_być_samochód_wyprodukowany_po_2010_roku).                          			
+                     			negatywne(czy,musi_być_wyprodukowany_po_2010_roku).                          			
 
 samochod_jest(mercedes_Benz_C_class) :- cecha_samochodu(sedan),
                      			cecha_samochodu(niemiecki),
@@ -64,7 +64,7 @@ samochod_jest(mercedes_Benz_C_class) :- cecha_samochodu(sedan),
                      			negatywne(czy,może_mieć_przebieg_większy_niż_100_000_kilometrów).                       			                			
 
 cecha_samochodu(suv) :- 	pozytywne(czy,ma_dać_radę_przejechać_przez_trudny_teren),
-				pozytywne(czy,ma_to_być_samochód_rodzinny).
+				pozytywne(czy,ma_być_samochodem_rodzinnym).
 
 cecha_samochodu(terenowy) :- 	pozytywne(czy,ma_dać_radę_przejechać_przez_trudny_teren),
 				pozytywne(czy,ma_mieć_wyciągarkę).
@@ -128,7 +128,7 @@ negatywne(X, Y) :-
 	pytaj(X, Y, nie).
 
 pytaj(X, Y, tak) :-
-	!, write(X), write(' to_samochód '), write(Y), write(' ? (t/n)\n'),
+	!, write(X), write(' samochód '), write(Y), write(' ? (t/n)\n'),
 	readln([Replay]),
 	pamietaj(X, Y, Replay), 
 	odpowiedz(Replay, tak).
