@@ -103,7 +103,7 @@ cecha_samochodu(manulana_skrzynia) 		:-		negatywne(czy,może_mieć_automatyczną
 
 cecha_samochodu(pojemnosc_wieksza_niz_2_litry) 	:- 		pozytywne(czy,ma_mieć_pojemność_większą_niż_2_litry).
 				
-cecha_samochodu(pojemnosc_mniejsz_niz_2_litry) 	:- 		negatywne(czy,ma_mieć_pojemność_większą_niż_2_litry).
+cecha_samochodu(pojemnosc_mniejsza_niz_2_litry) 	:- 		negatywne(czy,ma_mieć_pojemność_większą_niż_2_litry).
 
 cecha_samochodu(szyberdach)  			:- 		pozytywne(czy,ma_mieć_szyberdach).
 
