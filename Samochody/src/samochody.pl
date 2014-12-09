@@ -98,7 +98,6 @@ pytaj(X,Y,nie) :- !,
                   form_question(X,Y,Question),
                   ask_and_gather_reply(Question, Reply),
                   (Reply = 'n'),
-                  %% format("=== egzamined reply ~n"),
                   pamietaj(X,Y,nie).
 
 form_question(X,Y,Question) :-
@@ -139,8 +138,7 @@ backend_init(QueueId, ThreadId) :-
 wykonaj :-
     format('=== entered backend thread~n'),
     samochod_jest(X), !,
-    %% append("Wybierz samochód ", X, Result),
-    send_final_reply('final reply'),
+    send_final_reply(X),
     nl, wyczysc_fakty.
             
 wykonaj :-
@@ -174,8 +172,9 @@ start_backend(QueueId, ThreadId) :-
 ask(_Request) :-
     thread_self(TId),
     send_to_backend({get_question, TId}),
-    thread_get_message(QuestionOrStop),
-    {question, Q} = QuestionOrStop  ->
+    thread_get_message(Msg),
+    {QuestionOrStop, Q} = Msg,
+    (QuestionOrStop == question ->
         reply_html_page(
                 title('POST demo'),
                 [
@@ -187,8 +186,7 @@ ask(_Request) :-
                               ]),
                              p([], input([name=submit, type=submit, value='Submit'], []))
             ])])
-    ; {stop, Reply} = QuestionOrStop,
-      reply_html_page(title('POST demo'), [h1(Reply)]).
+     ; reply_html_page(title('POST demo'), [h1(Q)])).
 
 answer(Request) :-
     member(method(post), Request), !,
