@@ -244,15 +244,15 @@ ask(_Request) :-
     {QuestionOrStop, Q} = Msg,
     (QuestionOrStop == question ->
         reply_html_page(
-                title('POST demo'),
+                title('Samochody'),
                 [
                     h1(Q),
                     form([action='/answer', method='POST'], [
                              p([], [
-                                   label([for=answer],'Answer (t/n):'),
+                                   label([for=answer],'Odpowiedz (t/n):'),
                                    input([name=answer, type=textarea])
                               ]),
-                             p([], input([name=submit, type=submit, value='Submit'], []))
+                             p([], input([name=submit, type=submit, value='Wyslij'], []))
             ])])
      ; reply_html_page(title('POST demo'), [h1(Q)])).
 
